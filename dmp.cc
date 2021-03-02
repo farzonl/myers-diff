@@ -1,19 +1,12 @@
-#include "dmp_diff.hpp"
 #include <iostream>
 #include <string>
-
-using namespace std;
-
-using MyersStringDiff = MyersDiff<string>;
+#include "myersDiff.hpp"
 
 int main(int argn, char** args) {
-    string one{"test"};
-    string two{"text"};
-    MyersStringDiff diff{one, two};
-
-    for (const auto &i : diff) {
-        cout << i.str() << endl;
-    }
+    std::string one{"Hello test"};
+    std::string two{"Hola text"};
+    std::pair<string, string> results = Diff::compute(one, two);
+    cout << results.first << " | " << results.second << std::endl;
 
     return 0;
 }
